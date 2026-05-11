@@ -48,3 +48,31 @@ COMMENT ON COLUMN stock_check_item.system_qty IS '系统库存数量';
 COMMENT ON COLUMN stock_check_item.real_qty IS '实际盘点数量';
 COMMENT ON COLUMN stock_check_item.diff_qty IS '差异数量';
 ```
+目录结构
+stock-check/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/yourname/stockcheck/
+│   │   │       ├── StockCheckApplication.java
+│   │   │       ├── controller/
+│   │   │       │   └── ProductController.java        ← 成员A/B 写接口
+│   │   │       ├── service/
+│   │   │       │   ├── ProductService.java            ← 接口
+│   │   │       │   └── impl/
+│   │   │       │       └── ProductServiceImpl.java
+│   │   │       ├── mapper/
+│   │   │       │   └── ProductMapper.java             ← MyBatis Mapper
+│   │   │       ├── entity/
+│   │   │       │   └── Product.java                   ← 对应 PRODUCT 表
+│   │   │       └── common/
+│   │   │           └── Result.java                    ← 统一返回体
+│   │   └── resources/
+│   │       ├── mapper/
+│   │       │   └── ProductMapper.xml                  ← SQL XML
+│   │       └── application.yml                        ← 数据库配置
+│   └── test/
+│       └── java/
+│           └── com/yourname/stockcheck/
+│               └── StockCheckApplicationTests.java
+└── pom.xml
