@@ -6,10 +6,10 @@
 4.	盘点录入
 5.	差异计算
 ### 二、API 任务说明
-•	GET /api/products
-•	POST /api/checks
-•	POST /api/checks/{id}/items
-•	GET /api/checks/{id}/diff
+*	GET /api/products
+*	POST /api/checks
+*	POST /api/checks/{id}/items
+*	GET /api/checks/{id}/diff
 ### 三、开发步骤指引
 1.	创建stock_check、stock_check_item 表
 2.	实现商品管理product表已有 增删改查
@@ -18,9 +18,9 @@
 5.	实现差异计算
 6.	测试所有接口
 ### 四、验收标准
-•	盘点任务可创建
-•	差异计算正确
-•	数据结构合理
+*	盘点任务可创建
+*	差异计算正确
+*	数据结构合理
 ### 五、数据库 SQL
 ```
 CREATE TABLE stock_check (
@@ -47,6 +47,7 @@ COMMENT ON COLUMN stock_check_item.product_id IS '商品ID';
 COMMENT ON COLUMN stock_check_item.system_qty IS '系统库存数量';
 COMMENT ON COLUMN stock_check_item.real_qty IS '实际盘点数量';
 COMMENT ON COLUMN stock_check_item.diff_qty IS '差异数量';
+```
 ```
 目录结构
 stock-check/
@@ -76,3 +77,4 @@ stock-check/
 │           └── com/yourname/stockcheck/
 │               └── StockCheckApplicationTests.java
 └── pom.xml
+```
