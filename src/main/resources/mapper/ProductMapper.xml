@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ala.stockcheck.mapper.ProductMapper">
+
+    <resultMap id="ProductResultMap" type="com.ala.stockcheck.entity.Product">
+        <id     column="ID"          property="id"/>
+        <result column="NAME"        property="name"/>
+        <result column="PRICE"       property="price"/>
+        <result column="STOCK"       property="stock"/>
+        <result column="CREATE_TIME" property="createTime"/>
+    </resultMap>
+
+    <!-- 查询全部商品（含库存） -->
+    <select id="findAll" resultMap="ProductResultMap">
+        SELECT ID, NAME, PRICE, STOCK, CREATE_TIME
+        FROM PRODUCT
+        ORDER BY ID
+    </select>
+
+    <!-- 按ID查询 -->
+    <select id="findById" resultMap="ProductResultMap">
+        SELECT ID, NAME, PRICE, STOCK, CREATE_TIME
+        FROM PRODUCT
+        WHERE ID = #{id}
+    </select>
+
+    <!-- 新增商品 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO PRODUCT (NAME, PRICE, STOCK, CREATE_TIME)
+        VALUES (#{name}, #{price}, #{stock}, SYSDATE)
+    </insert>
+
+    <!-- 更新商品 -->
+    <update id="update">
+        UPDATE PRODUCT
+        SET NAME  = #{name},
+            PRICE = #{price},
+            STOCK = #{stock}
+        WHERE ID = #{id}
+    </update>
+
+    <!-- 删除商品 -->
+    <delete id="delete">
+        DELETE FROM PRODUCT
+        WHERE ID = #{id}
+    </delete>
+
+</mapper>
