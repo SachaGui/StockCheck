@@ -2,7 +2,7 @@ package com.ala.stockcheck.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Service;
 
 import com.ala.stockcheck.entity.Product;
@@ -11,7 +11,7 @@ import com.ala.stockcheck.mapper.ProductMapper;
 import com.ala.stockcheck.service.ProductService;
 
 @Service
-public class ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService{
 
     @Autowired
     private ProductMapper productMapper;
