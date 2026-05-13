@@ -1,11 +1,15 @@
 package com.ala.stockcheck.controller;
 
 import com.ala.stockcheck.common.Result;
+import com.ala.stockcheck.dto.DiffResponse;
 import com.ala.stockcheck.entity.StockCheck;
 import com.ala.stockcheck.service.StockCheckService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 /**
  * 棚卸タスクController
@@ -31,5 +35,17 @@ public class StockCheckController {
         StockCheck stockCheck = stockCheckService.createCheck();
 
         return Result.success(stockCheck);
+    }
+    
+    /**
+     * 差異計算
+     *
+     * @param id 棚卸タスクID
+     * @return 差異リスト
+     */
+    @GetMapping("/{id}/diff")
+    public Result<List<DiffResponse>> getDiffResult(@PathVariable Long id){
+    List<DiffResponse> diffList = stockCheckService.getDiff(id);
+    return Result.success(diffList);
     }
 }

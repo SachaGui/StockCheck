@@ -6,21 +6,27 @@
 
 <mapper namespace="com.ala.stockcheck.mapper.StockCheckMapper">
 
-    <!-- 棚卸タスク登録 -->
-    <insert id="insertCheck"
-            parameterType="com.ala.stockcheck.entity.StockCheck">
+	<!-- 棚卸タスク登録 -->
+	<insert id="insertCheck"
+		parameterType="com.ala.stockcheck.entity.StockCheck">
 
-        INSERT INTO stock_check
-        (
-            create_time,
-            status
-        )
-        VALUES
-        (
-            #{createTime},
-            #{status}
-        )
+		INSERT INTO stock_check
+		(
+		create_time,
+		status
+		)
+		VALUES
+		(
+		#{createTime},
+		#{status}
+		)
 
-    </insert>
+	</insert>
+	<!-- 差異計算 -->
+	<select id="selectItemsByCheckId"
+		resultType="com.ala.stockcheck.entity.StockCheckItem">
+		SELECT * FROM stock_check_item
+		WHERE check_id = #{checkId}
+	</select>
 
 </mapper>
