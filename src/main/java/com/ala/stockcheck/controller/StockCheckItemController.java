@@ -1,7 +1,7 @@
 package com.ala.stockcheck.controller;
 
 import com.ala.stockcheck.common.Result;
-import com.ala.stockcheck.dto.StockCheckItemRequest;
+import com.ala.stockcheck.dto.CheckItemRequest;
 import com.ala.stockcheck.entity.StockCheckItem;
 import com.ala.stockcheck.service.StockCheckItemService;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,7 @@ public class StockCheckItemController {
     @PostMapping("/{id}/items")
     public Result<StockCheckItem> addItem(
             @PathVariable Long id,
-            @RequestBody StockCheckItemRequest request) {
+            @RequestBody CheckItemRequest request) {
 
         StockCheckItem item = stockCheckItemService.addItem(
                 id,
