@@ -8,7 +8,7 @@
 
     <!-- 棚卸タスク登録 -->
     <insert id="insertCheck"
-            parameterType="com.ala.stockcheck.entity.StockCheck">
+        parameterType="com.ala.stockcheck.entity.StockCheck">
 
         INSERT INTO stock_check
         (
