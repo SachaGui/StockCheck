@@ -5,6 +5,7 @@ package com.ala.stockcheck.entity;
  */
 public class StockCheckItem {
 
+
     /** ID */
     private Long id;
 
@@ -41,4 +42,5 @@ public class StockCheckItem {
 
     public Integer getDiffQty() { return diffQty; }
     public void setDiffQty(Integer diffQty) { this.diffQty = diffQty; }
+
 }
