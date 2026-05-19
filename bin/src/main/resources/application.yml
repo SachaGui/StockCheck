@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: system
+    password: manager
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ala.stockcheck.entity
+  configuration:
+    map-underscore-to-camel-case: true
